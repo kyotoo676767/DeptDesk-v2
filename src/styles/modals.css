@@ -52,6 +52,19 @@
   margin: -6px -7px 0 8px;
 }
 
+.action-product-name {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 18px 0 0;
+}
+
+.action-product-name span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
 .confirm-modal__message {
   color: var(--ink-secondary);
   font-size: 14px;

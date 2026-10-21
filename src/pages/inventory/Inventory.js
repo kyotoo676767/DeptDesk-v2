@@ -49,8 +49,7 @@ function Inventory({
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   function handleAddSubmit(event) {
-    addItem(event);
-    if (form.name?.trim() && form.unit?.trim()) {
+    if (addItem(event)) {
       setIsFormOpen(false);
     }
   }
@@ -70,11 +69,10 @@ function Inventory({
             <div className="page-heading__actions">
               <button
                 type="button"
-                className={isFormOpen ? "secondary-button" : "primary-button"}
-                aria-expanded={isFormOpen}
-                onClick={() => setIsFormOpen((open) => !open)}
+                className="primary-button"
+                onClick={() => setIsFormOpen(true)}
               >
-                {isFormOpen ? "✕ Close form" : "＋ Add product"}
+                ＋ Add product
               </button>
               <button
                 type="button"
@@ -93,8 +91,9 @@ function Inventory({
         usageValue={loggedUsageValue}
         recordCount={recordItems.length}
       />
-      {!readOnly && isFormOpen && (
+      {!readOnly && (
         <InventoryForm
+          isOpen={isFormOpen}
           form={form}
           setForm={setForm}
           formError={formError}
